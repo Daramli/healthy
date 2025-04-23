@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 270 50% 40%; /* Royal Purple: #663399 */
+  --primary-foreground: 211 100% 99%;
+  --secondary: 270 100% 94%; /* Light Purple: #E6E6FA */
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 275 100% 25%; /* Indigo: #4B0082 */
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  --success: 140 42% 54%; /* Emerald Green: #50C878 */
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 270 50% 40%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 270 100% 94%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 275 100% 25%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+}
+
+/* Language-specific font settings */
+:root[dir="rtl"] {
+  font-family: 'Cairo', sans-serif;
+}
+
+:root[dir="ltr"] {
+  font-family: 'Roboto', sans-serif;
+}
+
+.rtl-mirror {
+  transform: scaleX(1);
+}
+
+:root[dir="rtl"] .rtl-mirror {
+  transform: scaleX(-1);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Plate Builder styles */
+.plate-zone {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.plate-zone:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.nutritional-info {
+  transition: all 0.3s ease;
+}
+
+.plate-selection {
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.plate-selection:hover, .plate-selection.selected {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+.plate-selection.selected {
+  border-color: hsl(var(--success)) !important;
+}
+
+@media (max-width: 768px) {
+  .plate-builder-container {
+    flex-direction: column;
+  }
+}
